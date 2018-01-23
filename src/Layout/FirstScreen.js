@@ -30,9 +30,9 @@ class FirstScreen extends Component {
                     </h3>
                 </section>
                 <section className="main-links">
-                    <a href="#">Blog</a>
-                    <a href="#">Github</a>
-                    <a href="#">Resume</a>
+                    <a href=".">Blog</a>
+                    <a href=".">Github</a>
+                    <a href=".">Resume</a>
                 </section>
                 <img src={mouse} alt="" className="mouse"/>
             </article>
