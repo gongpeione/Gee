@@ -17,8 +17,21 @@
     nav {
         position: relative;
         padding: $gap-middle $gap-big;
-        width: 100%;
+        margin-left: $gap-tiny;
+        width: calc(100% - 10px);
         position: fixed;
+        left: 0;
+        top: 0;
+        overflow: hidden;
+        // border: 5px solid transparent;
+        // border-bottom: none;
+        // border-top: none;
+        // background-clip: padding-box;
+        /* Rectangle 20: */
+        // background-image: linear-gradient(0deg, rgba(255,255,255,0.00) 0%, #1C2736 30%);
+        background-color: $dark;
+        box-shadow: 0 30px 20px -10px $dark;
+        z-index: 9;
     }
     ul {
         list-style: none;
@@ -65,7 +78,8 @@
             margin: 0;
         }
         h2 {
-            font-size: 60px;
+            font-size: 70px;
+            margin-bottom: $gap-middle;
         }
         h3 {
             opacity: .5;

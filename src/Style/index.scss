@@ -4,6 +4,8 @@
 body {
     min-height: 100vh;
     border: 5px solid $second-color;
+    border-bottom: none;
+    border-top: none;
     background-color: $dark;
     color: $main-light;
     font-weight: 100;
