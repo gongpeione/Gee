@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import '../Style/FirstScreen.scss';
 import mouse from '../Img/mouse.svg';
+import Messy from '../Components/Messy';
 
 class FirstScreen extends Component {
     render() {
@@ -19,8 +20,14 @@ class FirstScreen extends Component {
                     </ul>
                 </nav>
                 <section className="content">
-                    <h2>{ '< Geeku >' }</h2>
-                    <h3>对技术充满好奇</h3>
+                    <h2>
+                        <Messy gap={100}>{ '< Geeku >' }</Messy>
+                    </h2>
+                    <h3>
+                        <Messy gap={100}>
+                            对技术充满好奇
+                        </Messy>
+                    </h3>
                 </section>
                 <section className="main-links">
                     <a href="#">Blog</a>
