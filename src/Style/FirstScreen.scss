@@ -32,18 +32,25 @@
         margin: 0;
     }
     li {
-        width: 5px;
-        height: 5px;
+        width: 8px;
+        height: 8px;
         border-radius: 50%;
         background-color: $main-color;
         margin-left: $gap-small;
+        transition: .1s transform ease-in-out;
         &:first-child {
             margin-left: 0;
         }
         &.active {
-            width: 10px;
-            height: 10px;
+            width: 15px;
+            height: 15px;
             background-color: $second-color;
+            &:hover {
+                transform: scale(1.5);
+            }
+        }
+        &:hover {
+            transform: scale(1.8);
         }
     }
     .content {
