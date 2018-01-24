@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
+import Title from '../Components/Title';
 
 class Photography extends Component {
     render() {
         return (
             <article className="photography">
-Photography
+                <Title>Photography</Title> 
             </article>
         );
     }
