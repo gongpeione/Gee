@@ -30,7 +30,7 @@ class Photography extends Component {
                     {
                         this.state.imgs.map(img => (
                             <figure>
-                                <a href={img.link} style={{backgroundImage: `url(${img.src})`}}> </a><figcaption>{img.id}</figcaption>
+                                <a href={img.link} style={{backgroundImage: `url(${img.src})`}} target="_blank"> </a><figcaption>{img.id}</figcaption>
                             </figure>
                         ))
                     }
