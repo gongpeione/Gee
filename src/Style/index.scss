@@ -1,5 +1,6 @@
 @import './normalize';
 @import './color';
+@import './var';
 
 body {
     min-height: 100vh;
@@ -19,4 +20,30 @@ body *,
 body *::before,
 body *::after {
     box-sizing: inherit;
+}
+
+.btn {
+    background-color: $second-color;
+    border: none;
+    color: $dark;
+    padding: $gap-small $gap-middle;
+    cursor: pointer;
+    margin-top: $gap-middle;
+    border-radius: 5px;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, .2);
+    &:hover {
+        opacity: .9;
+    }
+    &:active {
+        outline-color: $dark;
+        outline-style: dashed;
+        outline-width: 1px;
+        outline-offset: -5px;
+    }
+    &:focus {
+        outline-color: $dark;
+        outline-style: dashed;
+        outline-width: 1px;
+        outline-offset: -5px;
+    }
 }

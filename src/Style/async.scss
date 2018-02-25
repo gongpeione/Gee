@@ -2,12 +2,18 @@
 @import './var';
 
 h2.title {
+    position: sticky;
     display: flex;
     align-items: center;
     color: $second-color;
     font-weight: 100;
     font-size: 40px;
     margin-bottom: $gap-giant;
+    top: 15px;
+    // text-align: right;
+    z-index: 9;
+    // background-color: $dark;
+    // box-shadow: 0 20px 30px $dark;
     &::before {
         content: '';
         display: inline-block;
@@ -22,6 +28,7 @@ h2.title {
 }
 .works {
     // padding: $gap-middle $gap-big;
+    text-align: center;
     .work-list {
         display: flex;
         flex-wrap: wrap;
@@ -31,6 +38,7 @@ h2.title {
             width: 33.33333%;
             padding: $gap-small;
             margin-bottom: $gap-small;
+            text-align: left;
             &:hover {
                 .cover {
                     box-shadow: 0 15px 40px rgba(0,0,0,.8)
@@ -66,14 +74,133 @@ h2.title {
             margin: 0;
         }
         h3 {
-            font-size: 24px;
+            font-size: 20px;
             margin-bottom: 2px;
             font-weight: 300;
         }
         p {
-            font-size: 14px;
+            font-size: 12px;
             font-weight: 100;
             opacity: .5;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+        }
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+    }
+}
+
+.design {
+    figure {
+        // margin: 0;
+        margin: 10px 0;
+        width: 22vw;
+        font-size: 0;
+        box-shadow: 0 10px 20px rgba(0,0,0,.2), 0 -5px 20px -5px rgba(0,0,0,.2);
+        background-size: cover;
+        border-radius: 5px;
+        overflow: hidden;
+        cursor: pointer;
+        &:hover {
+            transition: .2s box-shadow ease-in-out;
+            box-shadow: 0 15px 40px rgba(0,0,0,.8)
+        }
+    }
+    .figures {
+        display: flex;
+        margin: 0 -5px;
+        flex-wrap: wrap;
+        justify-content: space-around;
+    }
+    img {
+        width: 100%;
+        height: 250px;
+        background-color: $main-color;
+        border-radius: 5px 5px 0 0;
+        object-fit: cover;
+        opacity: 0;
+    }
+    figcaption {
+        text-align: center;
+        background-color: $second-color;
+        font-size: 18px;
+        color: $dark;
+        padding: $gap-middle;
+        border-radius: 0 0 5px 5px;
+    }
+}
+
+.photography {
+    text-align: center;
+    figure {
+        position: relative;
+        margin: 0;
+        // padding: 0 5px;
+        flex: 1;
+        font-size: 0;
+        z-index: 2;
+        overflow: hidden;
+        min-width: 100px;
+        &:hover {
+            
+        }
+    }
+    .figures {
+        // width: calc(100% + 80px);
+        display: flex;
+        // margin: 0 -40px;
+        margin-bottom: $gap-big;
+        flex-wrap: wrap;
+    }
+    a {
+        display: inline-block;
+        width: 200px;
+        height: 200px;
+        background-size: cover;
+    }
+    img {
+        width: 100%;
+        height: auto;
+        background-color: $main-color;
+    }
+    figcaption {
+        display: none;
+    }
+}
+
+.links {
+    ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+    }
+    li {
+        display: inline-flex;
+        flex-direction: column;
+        align-items: center;
+        position: relative;
+        img {
+            border-radius: 50%;
+            border: 5px solid $second-color;
+            background-color: $main-color;
+            margin-bottom: $gap-small;
+        }
+        &::before {
+            content: attr(data-tip);
+            position: absolute;
+            top: -10px;
+            transform: translateY(-100%);
+            background-color: rgba(0, 0, 0, .2);
+            font-size: 12px;
+            padding: $gap-tiny $gap-small;
+            width: 100px;
+            color: #fff;
+            display: none;
+        }
+        &:hover::before {
+            display: block;
         }
     }
 }

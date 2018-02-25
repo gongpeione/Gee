@@ -1,0 +1,13 @@
+{
+    "api": {
+        "works": "https://raw.githubusercontent.com/gongpeione/myProjects/master/lists.json",
+        "instagram": "https://api.geeku.net/ig/urls/"
+    },
+    "links": {
+        "instagram": "https://instagram.com/gongpeione/",
+        "works": "http://project.geeku.net",
+        "blog": "https://code.geeku.net",
+        "github": "https://github.com/gongpeione",
+        "resume": "https://geeku.net/resume.pdf"
+    }
+}

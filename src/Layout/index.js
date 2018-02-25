@@ -15,8 +15,8 @@ class Layout extends Component {
                 <Works></Works>
                 <Design></Design>
                 <Photography></Photography>
-                <Links></Links>
-                <Contact></Contact>
+                {/* <Links></Links> */}
+                {/* <Contact></Contact> */}
                 <Footer></Footer>
             </div>
         );
