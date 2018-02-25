@@ -7,18 +7,55 @@ import conf from '../config.json';
 
 const { blog, github, resume } = conf.links;
 
+const anchors = [
+    "first-screen", "works", "design", "photography"
+];
+
 class FirstScreen extends Component {
+
+    constructor (props) {
+        super(props);
+        this.state = {
+            curAnchor: 0
+        }
+    }
+
+    componentDidMount () {
+        const options = {
+            root: document.querySelector('body'),
+            rootMargin: '0px',
+            threshold: 1.0
+        }
+        var observer = new IntersectionObserver(() => 1, options);
+
+        // anchors.forEach(id => {
+        //     document.querySelector(`#${anchors[i]}`)
+        // });
+    }
+
+    anchorClick = (i) => {
+        this.setState({
+            curAnchor: i
+        });
+        document.querySelector(`#${anchors[i]}`).scrollIntoView({behavior: "smooth"});
+    }
+
     render() {
         return (
             <article id="first-screen" className="first-screen">
                 <nav>
-                    {/* <ul className="anchor">
-                        <li className="active"></li>
-                        <li></li>
-                        <li></li>
-                        <li></li>
-                        <li></li>
-                    </ul> */}
+                    
+                    <ul className="anchor">
+                        {
+                            anchors.map((a, i) => (
+                                <li 
+                                    className={i === this.state.curAnchor ? 'active' : undefined} 
+                                    onClick={() => this.anchorClick(i)}
+                                    key={i}
+                                ></li>
+                            ))
+                        }
+                    </ul>
                     <h1>
                         Geeku
                     </h1>

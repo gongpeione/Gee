@@ -7,11 +7,12 @@ h2.title {
     align-items: center;
     color: $second-color;
     font-weight: 100;
-    font-size: 40px;
+    font-size: $font-giant;
     margin-bottom: $gap-giant;
     top: 15px;
     // text-align: right;
     z-index: 9;
+    pointer-events: none;
     // background-color: $dark;
     // box-shadow: 0 20px 30px $dark;
     &::before {
@@ -21,6 +22,10 @@ h2.title {
         width: 80px;
         background-color: $second-color;
         margin-right: $gap-small;
+    }
+    @media screen and (max-width: 800px) {
+        position: relative;
+        z-index: 0;
     }
 }
 .wrap > article {
@@ -45,6 +50,16 @@ h2.title {
                 }
             }
         }
+        @media screen and (max-width: 800px) {
+            article {
+                width: 50%;
+            }
+        }
+        @media screen and (max-width: 500px) {
+            article {
+                width: 100%;
+            }
+        }
         .cover {
             background-color: $main-color;
             background-image: linear-gradient(-50deg, #3EE7D6 0%, $main-color 100%);
@@ -67,23 +82,32 @@ h2.title {
                 height: auto;
             }
         }
+        @media screen and (max-width: 800px) {
+            .logo {
+                img {
+                    width: 30px;
+                }
+            }
+        }
         .content {
             flex: 1;
+            width: 80%;
         }
         h3, p {
             margin: 0;
         }
         h3 {
-            font-size: 20px;
+            font-size: $font-big;
             margin-bottom: 2px;
             font-weight: 300;
         }
         p {
-            font-size: 12px;
+            font-size: $font-tiny;
             font-weight: 100;
             opacity: .5;
             white-space: nowrap;
             text-overflow: ellipsis;
+            overflow: hidden;
         }
         a {
             color: inherit;
@@ -108,6 +132,11 @@ h2.title {
             box-shadow: 0 15px 40px rgba(0,0,0,.8)
         }
     }
+    @media screen and (max-width: 500px) {
+        figure {
+            width: 100%;
+        }
+    }
     .figures {
         display: flex;
         margin: 0 -5px;
@@ -125,7 +154,7 @@ h2.title {
     figcaption {
         text-align: center;
         background-color: $second-color;
-        font-size: 18px;
+        font-size: $font-big;
         color: $dark;
         padding: $gap-middle;
         border-radius: 0 0 5px 5px;
@@ -147,6 +176,16 @@ h2.title {
             
         }
     }
+    @media screen and (max-width: 800px) {
+        figure {
+            min-width: 33.33%;
+        }
+    }
+    @media screen and (max-width: 500px) {
+        figure {
+            min-width: 50%;
+        }
+    }
     .figures {
         // width: calc(100% + 80px);
         display: flex;
@@ -159,6 +198,13 @@ h2.title {
         width: 200px;
         height: 200px;
         background-size: cover;
+    }
+    @media screen and (max-width: 800px) {
+        a {
+            width: 100%;
+            height: 0;
+            padding-bottom: 100%;
+        }
     }
     img {
         width: 100%;
@@ -193,7 +239,7 @@ h2.title {
             top: -10px;
             transform: translateY(-100%);
             background-color: rgba(0, 0, 0, .2);
-            font-size: 12px;
+            font-size: $font-tiny;
             padding: $gap-tiny $gap-small;
             width: 100px;
             color: #fff;
