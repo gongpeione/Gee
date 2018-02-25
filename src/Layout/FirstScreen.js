@@ -21,12 +21,12 @@ class FirstScreen extends Component {
     }
 
     componentDidMount () {
-        const options = {
-            root: document.querySelector('body'),
-            rootMargin: '0px',
-            threshold: 1.0
-        }
-        var observer = new IntersectionObserver(() => 1, options);
+        // const options = {
+        //     root: document.querySelector('body'),
+        //     rootMargin: '0px',
+        //     threshold: 1.0
+        // }
+        // var observer = new IntersectionObserver(() => 1, options);
 
         // anchors.forEach(id => {
         //     document.querySelector(`#${anchors[i]}`)
