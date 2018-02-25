@@ -11,7 +11,7 @@ class FirstScreen extends Component {
     render() {
         return (
             <article className="first-screen">
-                <nav>
+                {/* <nav>
                     <ul className="anchor">
                         <li className="active"></li>
                         <li></li>
@@ -22,7 +22,7 @@ class FirstScreen extends Component {
                     <h1>
                         Geeku
                     </h1>
-                </nav>
+                </nav> */}
                 <section className="content">
                     <h2>
                         <Messy gap={100}>{ '< Geeku >' }</Messy>
