@@ -30,6 +30,9 @@ h2.title {
 }
 .wrap > article {
     padding: $gap-middle $gap-big;
+    @media screen and (max-width: 800px) {
+        padding: $gap-middle $gap-middle;
+    }
 }
 .works {
     // padding: $gap-middle $gap-big;
