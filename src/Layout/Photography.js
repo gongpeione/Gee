@@ -24,7 +24,7 @@ class Photography extends Component {
 
     render() {
         return (
-            <article className="photography">
+            <article id="photography" className="photography">
                 <Title>Photography</Title> 
                 <section className="figures">
                     {

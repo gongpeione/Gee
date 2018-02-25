@@ -31,7 +31,7 @@ const imgs = [
 class Design extends Component {
     render() {
         return (
-            <article className="design">
+            <article id="design" className="design">
                 <Title>Design</Title>
                 <section className="figures">
                 {

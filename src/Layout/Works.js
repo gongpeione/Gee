@@ -21,18 +21,14 @@ class Works extends Component {
         });
     }
 
-    openWorks () {
-        window.open(conf.links.works);
-    }
-
     render() {
         return (
-            <article className="works">
+            <article id="works" className="works">
                 <Title>Works</Title>
                 <section className="work-list">
                     { this.state.works.map((work, i) => (<Card {...work} key={i}></Card>)) }
                 </section>
-                <Botton onClick={this.openInstagram}>More</Botton>
+                <Botton link={conf.links.works}>More</Botton>
             </article>
         );
     }

@@ -10,7 +10,7 @@ const { blog, github, resume } = conf.links;
 class FirstScreen extends Component {
     render() {
         return (
-            <article className="first-screen">
+            <article id="first-screen" className="first-screen">
                 <nav>
                     {/* <ul className="anchor">
                         <li className="active"></li>
