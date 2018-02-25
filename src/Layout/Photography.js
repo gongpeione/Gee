@@ -28,13 +28,11 @@ class Photography extends Component {
                 <Title>Photography</Title> 
                 <section className="figures">
                     {
-                        this.state.imgs.map(img => {
-                            return (
-                                <figure>
-                                    <a href={img.link} style={{backgroundImage: `url(${img.src})`}}></a><figcaption>{img.id}</figcaption>
-                                </figure>
-                            )
-                        })
+                        this.state.imgs.map(img => (
+                            <figure>
+                                <a href={img.link} style={{backgroundImage: `url(${img.src})`}}> </a><figcaption>{img.id}</figcaption>
+                            </figure>
+                        ))
                     }
                 </section>
 

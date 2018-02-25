@@ -6,14 +6,6 @@ import Botton from '../Components/Button';
 import http from '../utils/http';
 import conf from '../config.json';
 
-const t = {
-    name: 'Gee',
-    desp: '我的个人网站',
-    type: 'fe',
-    github: ''
-};
-const works = Array.from({length: 10}, () => t);
-
 class Works extends Component {
     constructor (props) {
         super(props);
@@ -23,7 +15,7 @@ class Works extends Component {
         http.get(conf.api.works).then(({data}) => {
             const dataArr = [];
             Object.keys(data).forEach(key => {
-                console.log(data, key),data[key].forEach(item => dataArr.push(item))
+                data[key].forEach(item => dataArr.push(item))
             });
             this.setState({ works: dataArr });
         });

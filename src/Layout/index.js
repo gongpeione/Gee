@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
-import Contact from './Contact';
+// import Contact from './Contact';
 import Design from './Design';
 import FirstScreen from './FirstScreen';
-import Links from './Links';
+// import Links from './Links';
 import Photography from './Photography';
 import Works from './Works';
 import Footer from './Footer';

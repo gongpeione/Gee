@@ -3,9 +3,7 @@ import logoDefault from '../Img/logo.white.svg';
 
 function getLogo (logo) {
     return logoDefault;
-    return logo ? 
-        `https://cdn.rawgit.com/gongpeione/myProjects/master/${logo}` : 
-        logoDefault;
+    // return logo ? `https://cdn.rawgit.com/gongpeione/myProjects/master/${logo}` : logoDefault;
 }
 
 export default class Card extends Component {
