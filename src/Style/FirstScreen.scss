@@ -121,6 +121,10 @@
     .mouse {
         padding: $gap-middle;
         animation: bounce 1.5s ease-in-out infinite;
+        width: 20px;
+        height: auto;
+        margin: 0 auto;
+        margin-top: $gap-middle;
     }
 }
 
