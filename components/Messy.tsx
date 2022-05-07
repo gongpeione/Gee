@@ -3,7 +3,7 @@ import React, { Component, useCallback, useEffect, useState, FC } from 'react';
 const codes =
   'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789~!@#$%^&*()_+{}|:\'<>?-=[]\\;\',./';
 
-const Messy: FC<{ children: any; gap?: number; delay?: number }> = ({
+const Messy: FC<{ children: any; className?: string, gap?: number; delay?: number, cb?: Function }> = ({
   children,
   ...props
 }) => {
@@ -20,21 +20,26 @@ const Messy: FC<{ children: any; gap?: number; delay?: number }> = ({
       }
     }
 
-    const messyTimer = setInterval(() => {
-      resultStr[i] = str[i];
-      generateStr(++i, strLength);
-      setResultStr(resultStr.join(''));
-      i >= str.length && clearInterval(messyTimer);
-    }, gap);
+    return new Promise(resolve => {
+      const messyTimer = setInterval(() => {
+        resultStr[i] = str[i];
+        generateStr(++i, strLength);
+        setResultStr(resultStr.join(''));
+        if (i >= str.length) {
+          clearInterval(messyTimer);
+          resolve(0);
+        }
+      }, gap);
+    })
   }, []);
 
   useEffect(() => {
     const content = children || '';
     const gap = props.gap ? +props.gap : 80;
-    messyLetters(content + '', gap);
-  }, [children, messyLetters, props.delay, props.gap]);
+    messyLetters(content + '', gap).then(() => props.cb && props.cb());
+  }, [children]);
 
-  return <section>{resultStr}</section>;
+  return <section className={props.className}>{resultStr}</section>;
 };
 
 export default Messy;

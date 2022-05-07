@@ -1,0 +1,31 @@
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+}
+
+.title {
+  font-size: 20px;
+  width: 500px;
+}
+
+.titleMessy {
+  display: inline-block;
+}
+
+.titleMessy + sup {
+  color: #ccc;
+  font-weight: 100;
+  margin-left: 10px;
+}
+
+.subTitle {
+  opacity: 0;
+}
+
+
+.subTitleShow {
+  opacity: 1;
+  transition: opacity .5s ease-in-out;
+}
