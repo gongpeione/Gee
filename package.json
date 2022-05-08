@@ -7,6 +7,7 @@
   },
   "dependencies": {
     "gray-matter": "^4.0.3",
+    "instagram-private-api": "^1.45.3",
     "next": "12.1.6",
     "react": "18.1.0",
     "react-dom": "18.1.0",

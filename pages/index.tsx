@@ -15,7 +15,7 @@ const Home = () => {
   const portalList = useMemo(() => {
     return [
       {
-        title: '项目',
+        title: '作品集',
         link: '/projects',
         class: styles.projects
       },
@@ -86,7 +86,7 @@ const Home = () => {
               年更<span className={styles.highlight}>画手</span>，
               几乎不更新<span className={styles.highlight}>博客</span>
             </p>
-            <p>对自己的要求是不设限，想尝试一切有趣的事物</p>
+            <p>希望自己不设限，尝试一切有趣的事物</p>
           </div>
         </section>
         <div className={styles.portal}>

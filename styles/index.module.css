@@ -90,6 +90,7 @@
 .contactList li {
   display: inline-block;
   margin-right: 10px;
+  cursor: pointer;
 }
 
 .links {
