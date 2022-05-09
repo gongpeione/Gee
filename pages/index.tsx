@@ -15,7 +15,7 @@ const Home = () => {
   const portalList = useMemo(() => {
     return [
       {
-        title: '作品集',
+        title: '项目集',
         link: '/projects',
         class: styles.projects
       },
