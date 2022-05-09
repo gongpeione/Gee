@@ -23,10 +23,10 @@ export default function Post(
           const { url, exifData } = photo;
           const { image, exif } = exifData;
           const { Make, Model, ModifyDate } = image;
-          const { FNumber, ISO, LensModel, ShutterSpeedValue } = exif;
+          const { FNumber, ISO, LensModel, ShutterSpeedValue, ExifImageWidth, ExifImageHeight } = exif;
           return (
             <li key={photo.url}>
-              <Image src={photo.url} alt="s" width={300} height={300} />
+              <Image src={photo.url} alt="s" width={ExifImageWidth} height={ExifImageHeight} />
               <div className="meta">
                 <p>
                   {Make} {Model} {LensModel} {ModifyDate}
