@@ -16,8 +16,46 @@ export async function getStaticProps() {
 export default function Post(
   props: ThenArg<ReturnType<typeof getStaticProps>>["props"],
 ) {
+  const equipment: Record<string, {
+    brand: string,
+    model: string
+  }[]> = {
+    '本体': [
+      {
+        brand: 'Sony',
+        model: 'A6000'
+      },
+      {
+        brand: 'Apple',
+        model: 'iPhone 12 pro'
+      }
+    ],
+    '镜头': [
+      {
+        brand: 'Sigma',
+        model: '30 1.4'
+      }
+    ]
+  };
+
+  type TProjectType = keyof typeof equipment;
+
   return (
     <main>
+      <section>
+        <h3>设备</h3>
+        {Object.keys(equipment).map((key) => {
+          const list = equipment[key as TProjectType];
+          return (
+            <div key={key}>
+              <h4>{key}</h4>
+              <ul>
+                {list.map(item => <li key={item.model}>{item.brand} {item.model}</li>)}
+              </ul>
+            </div>
+          )
+        })}
+      </section>
       <ul>
         {props.allPhotosData.map((photo) => {
           const { url, exifData } = photo;
