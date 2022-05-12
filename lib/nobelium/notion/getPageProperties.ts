@@ -1,16 +1,25 @@
 import { getTextContent, getDateValue } from 'notion-utils'
 import { NotionAPI } from 'notion-client'
 
-async function getPageProperties (id, block, schema, authToken) {
+async function getPageProperties (id: string, block: any, schema: any, authToken: string) {
   const api = new NotionAPI({ authToken })
   const rawProperties = Object.entries(block?.[id]?.value?.properties || [])
   const excludeProperties = ['date', 'select', 'multi_select', 'person']
-  const properties = {}
+  const properties: {
+    id: string,
+    date: { start_date: string },
+    type: string[],
+    slug: string,
+    summary: string,
+    title: string,
+    status: string[]
+  } = {} as any
+  type TPropertiesKey =  keyof typeof properties;
   for (let i = 0; i < rawProperties.length; i++) {
     const [key, val] = rawProperties[i]
     properties.id = id
     if (schema[key]?.type && !excludeProperties.includes(schema[key].type)) {
-      properties[schema[key].name] = getTextContent(val)
+      properties[schema[key].name as TPropertiesKey] = getTextContent(val as any) as any
     } else {
       switch (schema[key]?.type) {
         case 'date': {

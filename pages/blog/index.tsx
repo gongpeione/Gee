@@ -5,6 +5,7 @@ import Pagination from '../../components/nobelium/Pagination'
 import { LocaleProvider } from '../../lib/nobelium/locale';
 import { getAllPosts } from '../../lib/nobelium/notion'
 import BLOG from '../../blog.config'
+import { ThenArg } from '..';
 
 export async function getStaticProps () {
   const posts = await getAllPosts({ includePages: false })
@@ -24,7 +25,7 @@ export async function getStaticProps () {
 const Ackee = dynamic(() => import('../../components/nobelium/Ackee'), { ssr: false })
 const Gtag = dynamic(() => import('../../components/nobelium/Gtag'), { ssr: false })
 
-const blog = ({ postsToShow, page, showNext }) => {
+const blog = ({ postsToShow, page, showNext }: ThenArg<ReturnType<typeof getStaticProps>>["props"]) => {
   return (
     <LocaleProvider>
       <>
@@ -35,7 +36,7 @@ const blog = ({ postsToShow, page, showNext }) => {
           />
         )}
         {BLOG.isProd && BLOG?.analytics?.provider === 'ga' && <Gtag />}
-        <Container title={BLOG.title} description={BLOG.description}>
+        <Container title={BLOG.title} description={BLOG.description} layout={undefined} fullWidth={undefined}>
           {postsToShow.map(post => (
             <BlogPost key={post.id} post={post} />
           ))}

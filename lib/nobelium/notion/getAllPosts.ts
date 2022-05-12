@@ -10,9 +10,9 @@ import filterPublishedPosts from './filterPublishedPosts'
  */
 export async function getAllPosts ({ includePages = false }) {
   let id = BLOG.notionPageId
-  const authToken = BLOG.notionAccessToken || null
+  const authToken: string | undefined = BLOG.notionAccessToken
   const api = new NotionAPI({ authToken })
-  const response = await api.getPage(id)
+  const response = await api.getPage(id || '')
 
   id = idToUuid(id)
   const collection = Object.values(response.collection)[0]?.value
@@ -36,6 +36,8 @@ export async function getAllPosts ({ includePages = false }) {
     for (let i = 0; i < pageIds.length; i++) {
       const id = pageIds[i]
       const properties = (await getPageProperties(id, block, schema)) || null
+
+      console.log({propertiespropertiespropertiesproperties:properties})
 
       // Add fullwidth, createdtime to properties
       properties.createdTime = new Date(
