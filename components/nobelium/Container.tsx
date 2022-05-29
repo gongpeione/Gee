@@ -1,11 +1,10 @@
-import Header from './Header'
 import Footer from './Footer'
 import BLOG from '../../blog.config'
 import Head from 'next/head'
 import PropTypes from 'prop-types'
 // import BlogPost from './BlogPost'
 
-const Container = ({ children, layout, fullWidth, ...customMeta }) => {
+const Container = ({ children, layout, fullWidth, ...customMeta }: any) => {
   const url = BLOG.path.length ? `${BLOG.link}/${BLOG.path}` : BLOG.link
   const meta = {
     title: BLOG.title,
@@ -13,10 +12,10 @@ const Container = ({ children, layout, fullWidth, ...customMeta }) => {
     ...customMeta
   }
   return (
-    <div>
+    <>
       <Head>
         <title>{meta.title}</title>
-        {/* <meta content={BLOG.darkBackground} name="theme-color" /> */}
+        <meta content={BLOG.darkBackground} name="theme-color" />
         <meta name="robots" content="follow, index" />
         <meta charSet="UTF-8" />
         {BLOG.seo.googleSiteVerification && (
@@ -62,25 +61,11 @@ const Container = ({ children, layout, fullWidth, ...customMeta }) => {
           </>
         )}
       </Head>
-      <div
-        className={`wrapper ${
-          BLOG.font === 'serif' ? 'font-serif' : 'font-sans'
-        }`}
-      >
-        <Header
-          navBarTitle={layout === 'blog' ? meta.title : null}
-          fullWidth={fullWidth}
-        />
-        <main
-          className={`m-auto flex-grow w-full transition-all ${
-            !fullWidth ? 'max-w-2xl px-4' : 'px-4 md:px-24'
-          }`}
-        >
-          {children}
-        </main>
-        <Footer fullWidth={fullWidth} />
-      </div>
-    </div>
+
+      <main>
+        {children}
+      </main>
+    </>
   )
 }
 

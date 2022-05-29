@@ -1,7 +1,8 @@
 .container {
-  background-color: rgb(255, 255, 255);
+  background-image: var(--linear-bg);
   height: 100%;
   font-weight: 300;
+  color: #fff;
 }
 
 .main {

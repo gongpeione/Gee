@@ -1,12 +1,12 @@
 import Image from 'next/image'
-import Container from '../components/nobelium/Container'
-import TagItem from '../components/nobelium/TagItem'
+import Container from './Container'
+import TagItem from './TagItem'
 import { NotionRenderer, Equation, Code, Collection, CollectionRow } from 'react-notion-x'
-import BLOG from '../blog.config'
-import formatDate from '../lib/nobelium/formatDate'
-import { useLocale } from '../lib/nobelium/locale'
+import BLOG from '../../blog.config'
+import formatDate from '../../lib/nobelium/formatDate'
+import { useLocale } from '../../lib/nobelium/locale'
 import { useRouter } from 'next/router'
-import Comments from '../components/nobelium/Comments'
+import Comments from './Comments'
 
 const mapPageUrl = id => {
   return 'https://www.notion.so/' + id.replace(/-/g, '')

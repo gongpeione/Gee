@@ -1,4 +1,3 @@
-import dynamic from 'next/dynamic'
 import Container from '../../components/nobelium/Container'
 import BlogPost from '../../components/nobelium/BlogPost'
 import Pagination from '../../components/nobelium/Pagination'
@@ -22,29 +21,17 @@ export async function getStaticProps () {
   }
 }
 
-const Ackee = dynamic(() => import('../../components/nobelium/Ackee'), { ssr: false })
-const Gtag = dynamic(() => import('../../components/nobelium/Gtag'), { ssr: false })
-
-const blog = ({ postsToShow, page, showNext }: ThenArg<ReturnType<typeof getStaticProps>>["props"]) => {
+const Blog = ({ postsToShow, page, showNext }: ThenArg<ReturnType<typeof getStaticProps>>["props"]) => {
   return (
     <LocaleProvider>
-      <>
-        {BLOG.isProd && BLOG?.analytics?.provider === 'ackee' && (
-          <Ackee
-            ackeeServerUrl={BLOG.analytics.ackeeConfig.dataAckeeServer}
-            ackeeDomainId={BLOG.analytics.ackeeConfig.domainId}
-          />
-        )}
-        {BLOG.isProd && BLOG?.analytics?.provider === 'ga' && <Gtag />}
-        <Container title={BLOG.title} description={BLOG.description} layout={undefined} fullWidth={undefined}>
-          {postsToShow.map(post => (
-            <BlogPost key={post.id} post={post} />
-          ))}
-          {showNext && <Pagination page={page} showNext={showNext} />}
-        </Container>
-      </>
+      <Container title={BLOG.title} description={BLOG.description} layout={undefined} fullWidth={undefined}>
+        {postsToShow.map(post => (
+          <BlogPost key={post.id} post={post} />
+        ))}
+        {showNext && <Pagination page={page} showNext={showNext} />}
+      </Container>
     </LocaleProvider>
   )
 }
 
-export default blog
+export default Blog

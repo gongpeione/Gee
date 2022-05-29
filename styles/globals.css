@@ -19,3 +19,8 @@ a {
 #__next {
   height: 100%;
 }
+
+:root {
+  --color-orange: #FFA34F;
+  --linear-bg: linear-gradient(180deg, #122452 0%, #091430 100%);
+}
