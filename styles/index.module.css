@@ -1,5 +1,6 @@
 .container {
-  background-image: var(--linear-bg);
+  /* background-image: url('/circles.svg'); */
+  background-size: 100% auto;
   height: 100%;
   font-weight: 300;
   color: #fff;

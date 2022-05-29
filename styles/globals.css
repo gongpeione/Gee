@@ -20,6 +20,10 @@ a {
   height: 100%;
 }
 
+body {
+  background-image: var(--linear-bg);
+}
+
 :root {
   --color-orange: #FFA34F;
   --linear-bg: linear-gradient(180deg, #122452 0%, #091430 100%);

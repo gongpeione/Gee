@@ -6,7 +6,7 @@
   display: flex;
   justify-content: center;
   z-index: 9;
-  backdrop-filter: blur(10px);
+  /* backdrop-filter: blur(10px); */
 }
 
 .menuWrapper {
@@ -16,6 +16,7 @@
   display: flex;
   position: relative;
   font-size: 16px;
+  font-weight: 200;
   width: 981px;
   justify-content: space-between;
 }
@@ -77,6 +78,15 @@
 .itemIcon {
   width: 73px !important;
   height: 73px !important;
+}
+
+.itemIcon svg {
+  width: 100%;
+  height: auto;
+}
+
+.itemIcon.project:hover path:nth-child(1) {
+  fill: #fff;
 }
 
 .logo {

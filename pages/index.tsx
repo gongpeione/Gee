@@ -7,6 +7,7 @@ import Messy from '../components/Messy';
 import Menu from '../components/Menu';
 import styles from '../styles/index.module.css';
 import AboutMe from '../components/AboutMe';
+import getMenuItems from '../lib/getMenuItems';
 // import { getSortedPostsData } from '../lib/posts';
 
 export type ThenArg<T> = T extends PromiseLike<infer U> ? U : T;
@@ -15,7 +16,57 @@ export const Context = createContext({
   currentInView: ''
 });
 
-const Home = () => {
+export const menuItems: {
+  name: string;
+  icon: string;
+  target: string;
+  iconContent?: string;
+}[] = [
+  {
+    name: 'Project',
+    icon: '/icons/project.svg',
+    target: 'project'
+  },
+  {
+    name: 'Photo',
+    icon: '/icons/photo.svg',
+    target: 'photo'
+  },
+  {
+    name: 'Draw',
+    icon: '/icons/paint.svg',
+    target: 'draw'
+  },
+  {
+    name: 'Design',
+    icon: '/icons/design.svg',
+    target: 'design'
+  },
+  {
+    name: 'Blog',
+    icon: '/icons/blog.svg',
+    target: 'blog'
+  },
+  {
+    name: 'Friends',
+    icon: '/icons/friend.svg',
+    target: 'friends'
+  }
+];
+
+export type TMenuItem = typeof menuItems;
+
+export async function getStaticProps() {
+  const items = await getMenuItems(menuItems);
+
+  return {
+    props: {
+      menuItems: items,
+    },
+  };
+}
+
+const Home = (props: Awaited<ReturnType<typeof getStaticProps>>["props"]) => {
   const portalList = useMemo(() => {
     return [
       {
@@ -75,7 +126,7 @@ const Home = () => {
     <Context.Provider value={{ currentInView: 'project' }}>
       <div className={styles.container}>
         <main className={styles.main}>
-          <Menu />
+          <Menu menuItems={props.menuItems} />
           <AboutMe />
           {/* <div className={styles.portal}>
             <ul className={styles.portalList}>

@@ -1,6 +1,5 @@
 import Image from 'next/image';
-import { ThenArg } from '..';
-import Layout from '../../components/layout';
+// import Layout from '../../components/layout';
 import getDrawsData from '../../lib/draws';
 
 export async function getStaticProps() {
@@ -14,7 +13,7 @@ export async function getStaticProps() {
 }
 
 export default function Post(
-  props: ThenArg<ReturnType<typeof getStaticProps>>["props"],
+  props: Awaited<ReturnType<typeof getStaticProps>>["props"],
 ) {
   return <div>
     <ul>
