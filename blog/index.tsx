@@ -1,10 +1,10 @@
-import Container from '../../components/nobelium/Container'
-import BlogPost from '../../components/nobelium/BlogPost'
-import Pagination from '../../components/nobelium/Pagination'
-import { LocaleProvider } from '../../lib/nobelium/locale';
-import { getAllPosts } from '../../lib/nobelium/notion'
-import BLOG from '../../blog.config'
-import { ThenArg } from '..';
+import Container from '../components/nobelium/Container'
+import BlogPost from '../components/nobelium/BlogPost'
+import Pagination from '../components/nobelium/Pagination'
+import { LocaleProvider } from '../lib/nobelium/locale';
+import { getAllPosts } from '../lib/nobelium/notion'
+import BLOG from '../blog.config'
+import { ThenArg } from '../pages';
 
 export async function getStaticProps () {
   const posts = await getAllPosts({ includePages: false })

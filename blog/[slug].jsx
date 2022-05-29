@@ -1,4 +1,4 @@
-import Layout from '../../components/nobelium/layout'
+import Layout from '../../components/nobelium/Layout'
 import { getAllPosts, getPostBlocks } from '../../lib/nobelium/notion'
 import BLOG from '../../blog.config'
 import { createHash } from 'crypto'
