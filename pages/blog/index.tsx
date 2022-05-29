@@ -24,8 +24,9 @@ export async function getStaticProps () {
 const Blog = ({ postsToShow, page, showNext }: ThenArg<ReturnType<typeof getStaticProps>>["props"]) => {
   return (
     <LocaleProvider>
+      {/* @ts-ignore */}
       <Container title={BLOG.title} description={BLOG.description} layout={undefined} fullWidth={undefined}>
-        {postsToShow.map(post => (
+        {postsToShow.map((post: any) => (
           <BlogPost key={post.id} post={post} />
         ))}
         {showNext && <Pagination page={page} showNext={showNext} />}

@@ -40,9 +40,11 @@ export async function getAllPosts ({ includePages = false }) {
       console.log({propertiespropertiespropertiesproperties:properties})
 
       // Add fullwidth, createdtime to properties
+      // @ts-ignore
       properties.createdTime = new Date(
         block[id].value?.created_time
       ).toString()
+      // @ts-ignore
       properties.fullWidth = block[id].value?.format?.page_full_width ?? false
 
       data.push(properties)
@@ -53,9 +55,11 @@ export async function getAllPosts ({ includePages = false }) {
 
     // Sort by date
     if (BLOG.sortByDate) {
+      // @ts-ignore
       posts.sort((a, b) => {
         const dateA = new Date(a?.date?.start_date || a.createdTime)
         const dateB = new Date(b?.date?.start_date || b.createdTime)
+        // @ts-ignore
         return dateB - dateA
       })
     }

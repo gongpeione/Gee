@@ -1,7 +1,7 @@
 import { getTextContent, getDateValue } from 'notion-utils'
 import { NotionAPI } from 'notion-client'
 
-async function getPageProperties (id: string, block: any, schema: any, authToken: string) {
+async function getPageProperties (id: string, block: any, schema: any, authToken?: string) {
   const api = new NotionAPI({ authToken })
   const rawProperties = Object.entries(block?.[id]?.value?.properties || [])
   const excludeProperties = ['date', 'select', 'multi_select', 'person']
@@ -23,20 +23,24 @@ async function getPageProperties (id: string, block: any, schema: any, authToken
     } else {
       switch (schema[key]?.type) {
         case 'date': {
-          const dateProperty = getDateValue(val)
+          const dateProperty = getDateValue(val as any)
+          // @ts-ignore
           delete dateProperty.type
+          // @ts-ignore
           properties[schema[key].name] = dateProperty
           break
         }
         case 'select':
         case 'multi_select': {
-          const selects = getTextContent(val)
+          const selects = getTextContent(val as any)
           if (selects[0]?.length) {
+            // @ts-ignore
             properties[schema[key].name] = selects.split(',')
           }
           break
         }
         case 'person': {
+          // @ts-ignore
           const rawUsers = val.flat()
           const users = []
           for (let i = 0; i < rawUsers.length; i++) {
@@ -44,6 +48,7 @@ async function getPageProperties (id: string, block: any, schema: any, authToken
               const userId = rawUsers[i][0]
               const res = await api.getUsers(userId)
               const resValue =
+              // @ts-ignore
                 res?.recordMapWithRoles?.notion_user?.[userId[1]]?.value
               const user = {
                 id: resValue?.id,
@@ -54,6 +59,7 @@ async function getPageProperties (id: string, block: any, schema: any, authToken
               users.push(user)
             }
           }
+          // @ts-ignore
           properties[schema[key].name] = users
           break
         }

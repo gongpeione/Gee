@@ -1,4 +1,4 @@
-import Footer from './Footer'
+// import Footer from './Footer'
 import BLOG from '../../blog.config'
 import Head from 'next/head'
 import PropTypes from 'prop-types'
