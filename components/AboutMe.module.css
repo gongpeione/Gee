@@ -1,7 +1,9 @@
 .container {
-  position: absolute;
+  /* position: absolute;
   left: 279px;
-  width: 736px;
+  margin-left: 40px; */
+  width: 981px;
+  /* color: #9FCBFF; */
 }
 
 .container h1 {
@@ -29,6 +31,7 @@
 
 .subTitle {
   font-size: 22px;
+  width: 620px;
 }
 
 .subTitle p {

@@ -5,7 +5,7 @@ import Messy from './Messy';
 
 export default function AboutMe({ children }: any) {
   const [messyFinished, setMessyFinished] = useState(false);
-  const [contentLeft, setContentLeft] = useState(0);
+  // const [contentLeft, setContentLeft] = useState(0);
 
   // useEffect(() => {
   //   const menu = document.querySelector(`.${menuStyles.menuWrapper}`);
